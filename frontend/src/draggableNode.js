@@ -10,7 +10,7 @@ export const DraggableNode = ({ type, label }) => {
   
     return (
       <div
-        className={`draggable-palette-node ${type}`}
+        className={type}
         onDragStart={(event) => onDragStart(event, type)}
         onDragEnd={(event) => (event.target.style.cursor = 'grab')}
         style={{ 

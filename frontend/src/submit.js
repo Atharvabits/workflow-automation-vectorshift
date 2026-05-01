@@ -61,11 +61,11 @@ export const SubmitButton = () => {
     const popupStatusBackground = popup?.type === 'success' ? '#eefaf3' : popup?.type === 'warning' ? '#fff8e6' : '#fff0f0';
 
     return (
-        <footer className="pipeline-submit" style={{
+        <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: 14,
+            padding: '14px 0 18px',
             background: '#fbfbff'
         }}>
             <button
@@ -90,14 +90,36 @@ export const SubmitButton = () => {
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="pipeline-result-title"
-                    className="pipeline-dialog-backdrop"
+                    style={{
+                        position: 'fixed',
+                        inset: 0,
+                        zIndex: 1000,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: 'rgba(36, 35, 56, 0.34)',
+                        padding: 20,
+                    }}
                 >
-                    <div className="pipeline-dialog-panel">
+                    <div
+                        style={{
+                            width: 'min(420px, 100%)',
+                            borderRadius: 14,
+                            border: '1px solid #e7e5fb',
+                            background: '#ffffff',
+                            boxShadow: '0 24px 70px rgba(49, 45, 101, 0.22)',
+                            overflow: 'hidden',
+                        }}
+                    >
                         <div style={{ height: 6, background: 'linear-gradient(90deg, #6d67e8, #8a84f7)' }} />
-                        <div className="pipeline-dialog-body">
+                        <div style={{ padding: 24 }}>
                             <h2
                                 id="pipeline-result-title"
-                                className="pipeline-dialog-title"
+                                style={{
+                                    margin: '0 0 10px',
+                                    color: '#242338',
+                                    fontSize: 22,
+                                }}
                             >
                                 {popup.title}
                             </h2>
@@ -160,6 +182,6 @@ export const SubmitButton = () => {
                     </div>
                 </div>
             )}
-        </footer>
+        </div>
     );
 }
